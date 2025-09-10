@@ -1,4 +1,4 @@
-package com.example.back_vallespejo.models.DAO;
+package com.example.back_vallespejo.models.dao;
 
 import com.example.back_vallespejo.models.entities.Material;
 import org.springframework.data.repository.CrudRepository;
