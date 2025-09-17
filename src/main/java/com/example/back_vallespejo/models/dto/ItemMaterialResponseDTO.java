@@ -1,6 +1,5 @@
 package com.example.back_vallespejo.models.dto;
 
-import java.time.LocalDateTime;
 
 /* Nota Rodri: Este DTO es especificamente solo para respuesta en JSON. */
 
@@ -12,25 +11,20 @@ public class ItemMaterialResponseDTO {
     private Integer cantidad;
     private Double precioUnitario;
     private Double subtotal;
-    private String observaciones;
-    private LocalDateTime fechaAgregado;
     private Long listaMaterialesId;
     private String listaMaterialesNombre;
 
     public ItemMaterialResponseDTO() {}
 
-    public ItemMaterialResponseDTO(Long id, String materialNombre, String materialSerie,
-                                            Integer cantidad, Double precioUnitario, Double subtotal,
-                                            String observaciones, LocalDateTime fechaAgregado,
-                                            Long listaMaterialesId, String listaMaterialesNombre) {
+    public ItemMaterialResponseDTO(Long id, String materialNombre, String materialSerie, 
+                                 Integer cantidad, Double precioUnitario, Double subtotal, 
+                                 Long listaMaterialesId, String listaMaterialesNombre) {
         this.id = id;
         this.materialNombre = materialNombre;
         this.materialSerie = materialSerie;
         this.cantidad = cantidad;
         this.precioUnitario = precioUnitario;
         this.subtotal = subtotal;
-        this.observaciones = observaciones;
-        this.fechaAgregado = fechaAgregado;
         this.listaMaterialesId = listaMaterialesId;
         this.listaMaterialesNombre = listaMaterialesNombre;
     }
@@ -82,22 +76,6 @@ public class ItemMaterialResponseDTO {
 
     public void setSubtotal(Double subtotal) {
         this.subtotal = subtotal;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
-
-    public LocalDateTime getFechaAgregado() {
-        return fechaAgregado;
-    }
-
-    public void setFechaAgregado(LocalDateTime fechaAgregado) {
-        this.fechaAgregado = fechaAgregado;
     }
 
     public Long getListaMaterialesId() {
