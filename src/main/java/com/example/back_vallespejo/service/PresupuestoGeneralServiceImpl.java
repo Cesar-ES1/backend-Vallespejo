@@ -30,6 +30,19 @@ public class PresupuestoGeneralServiceImpl implements IPresupuestoGeneralService
     }
 
     @Override
+    public List<Long> getActividadesIdsByPresupuestoId(Long presupuestoGeneralId) {
+        Presupuesto_General presupuesto = dao.findById(presupuestoGeneralId).orElse(null);
+        
+        if (presupuesto == null || presupuesto.getActividades() == null) {
+            return new ArrayList<>();
+        }
+        
+        return presupuesto.getActividades().stream()
+                .map(actividad -> actividad.getId())
+                .toList();
+    }
+
+    @Override
     public void delete(Presupuesto_General entity) {
         dao.delete(entity);
     }

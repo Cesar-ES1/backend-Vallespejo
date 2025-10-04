@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "item_materiales")
@@ -21,7 +20,7 @@ public class ItemMaterial {
     private ListaMateriales listaMateriales;
 
     
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "material_id", nullable = false)
     private Material material;
 
@@ -98,7 +97,10 @@ public class ItemMaterial {
     }
 
     public String getCodigo() { return codigo; }
+    public void setCodigo(String codigo) { this.codigo = codigo; }
+    
     public String getDesc_recurso() { return desc_recurso; }
+    public void setDesc_recurso(String desc_recurso) { this.desc_recurso = desc_recurso; }
 
 
     // Métodos de conveniencia
