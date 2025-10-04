@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "item_materiales")
@@ -21,25 +20,17 @@ public class ItemMaterial {
     private ListaMateriales listaMateriales;
 
     
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "material_id", nullable = false)
     private Material material;
 
     
-    @Column(unique = true, length = 7)
+    @Column(length = 7)
     private String codigo;
 
     
-    @Column(length = 50, unique = true)
+    @Column(length = 50)
     private String desc_recurso;
-
-    
-    private Double cuadrilla;
-
-    //unidad de medida (h-h, VIAJE,%MO)
-    
-    private String unidad;
-
     
     @Min(value = 1)
     @Column(nullable = false)
@@ -106,9 +97,10 @@ public class ItemMaterial {
     }
 
     public String getCodigo() { return codigo; }
+    public void setCodigo(String codigo) { this.codigo = codigo; }
+    
     public String getDesc_recurso() { return desc_recurso; }
-    public String getUnidad() { return unidad; }
-    public Double getCuadrilla() { return cuadrilla; }
+    public void setDesc_recurso(String desc_recurso) { this.desc_recurso = desc_recurso; }
 
 
     // Métodos de conveniencia
